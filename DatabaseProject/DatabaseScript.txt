@@ -1,0 +1,28 @@
+CREATE DATABASE IF NOT EXISTS FootballManager;
+USE FootballManager;
+
+DROP TABLE IF EXISTS PlayerDetails;
+
+
+CREATE TABLE PlayerDetails (
+	mid INT(30) NOT NULL,
+	clubname VARCHAR(60) NOT NULL,
+	equipmenttype VARCHAR(60) NOT NULL,
+	timestart VARCHAR(30) NOT NULL,
+    timeend VARCHAR(30) NOT NULL,
+    fname VARCHAR(30) NOT NULL,
+    lname VARCHAR(30) NOT NULL,
+    gender VARCHAR(30) NOT NULL,
+    designation VARCHAR(30) NOT NULL,
+    primary key(mid)
+);
+
+select * from PlayerDetails;
+
+DELIMITER //
+CREATE PROCEDURE GetAllProducts()
+BEGIN
+    SELECT *  FROM PlayerDetails;
+END //
+
+call GetAllProducts();
